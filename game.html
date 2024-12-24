@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuiZZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Just+Another+Hand&family=Lacquer&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Coustard:wght@400;900&family=Just+Another+Hand&family=Lacquer&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <style>
+        .bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+            .coustard-regular {
+    font-family: "Coustard", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    .coustard-black {
+    font-family: "Coustard", serif;
+    font-weight: 900;
+    font-style: normal;
+    }
+
+    body{
+            background-color: #4C0A87;
+           
+        }
+    #question
+    {
+        color: #4C0A87;
+        font-family:"Bungee Inline";
+        width: 800px;
+        height: 175px;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        padding-top:22px;
+        font-size: 30px;
+        border-radius:10px;
+        border: 5px solid rgb(27, 0, 53);
+        position: absolute;
+        right:25%;
+        top:15%;
+        font-family:"Coustard";
+        
+        
+    }
+    button{
+        width:170px;
+        height:80px;
+        color:#ffffff;
+        background-color: rgb(166, 0, 255);
+        border-radius: 7px;
+        font-family: "Bungee Inline";
+        font-size: 25px;
+        border: 6px solid rgb(27, 0, 52);
+        border-top:none;
+        border-left:none;
+
+    }
+    button:active
+    {
+        border: 3px solid rgb(255, 255, 255);
+        border-top:none;
+        border-left:none;
+    }
+    
+    #score
+    {
+        font-family: "Bungee Inline";
+        font-size: 24px;
+        color: white;
+        position:absolute;
+        top:0px;
+        right:100px;
+    }
+    #option
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        position:absolute;
+        right:29%;
+        top:55%;
+        width:700px;
+    }
+   
+   
+</style>
+</head>
+<body>
+    <p id="score"> Score : 0</p>
+    <p id="question"> Question 1 :</p>
+    <div id="option">
+    <button id="t" onclick="clickTrue()"> True </button>
+    <button id="f" onclick="clickFalse()"> False </button>
+    <p id="show"></p>
+    
+    <script>
+        const questions = [
+                { question: "The Great Wall of China is visible from space.", answer: false },
+                { question: "Honey never spoils.", answer: true },
+                { question: "The capital of Australia is Sydney.", answer: false },
+                { question: "Sharks are mammals.", answer: false },
+                { question: "Mount Everest is the tallest mountain in the world.", answer: true },
+                { question: "Lightning never strikes the same place twice.", answer: false },
+                { question: "Octopuses have three hearts.", answer: true },
+                { question: "Bananas grow on trees.", answer: false },
+                { question: "There are 24 hours in a day.", answer: true },
+                { question: "The Eiffel Tower was built in 1889.", answer: true },
+                { question: "Goldfish have a memory span of three seconds.", answer: false },
+                { question: "Humans share about 98% of their DNA with chimpanzees.", answer: true },
+                { question: "Water boils at 100 degrees Fahrenheit.", answer: false },
+                { question: "Penguins can fly.", answer: false },
+                { question: "Venus is the hottest planet in the solar system.", answer: true },
+                { question: "The Pacific Ocean is the largest ocean on Earth.", answer: true },
+                { question: "The speed of light is faster than the speed of sound.", answer: true },
+                { question: "A group of lions is called a pride.", answer: true },
+                { question: "Humans can breathe and swallow at the same time.", answer: false },
+                { question: "The Mona Lisa was painted by Vincent van Gogh.", answer: false },
+                { question: "Pluto was reclassified as a dwarf planet in 2006.", answer: true },
+                { question: "The human brain is made up of 78% water.", answer: true },
+                { question: "The longest river in the world is the Amazon River.", answer: false },
+                { question: "A sneeze can travel faster than 100 mph.", answer: true },
+                { question: "Albert Einstein developed the theory of gravity.", answer: false },
+                { question: "A jellyfish is considered an invertebrate.", answer: true },
+                { question: "The largest organ in the human body is the liver.", answer: false },
+                { question: "There are seven continents on Earth.", answer: true },
+                { question: "The piano has 88 keys.", answer: true },
+                { question: "An octagon has six sides.", answer: false },
+                { question: "The Statue of Liberty was a gift from France.", answer: true },
+                { question: "Bats are blind.", answer: false },
+                { question: "Sound travels faster in air than in water.", answer: false },
+                { question: "The human body has 206 bones.", answer: true },
+                { question: "Tomatoes are vegetables.", answer: false },
+                { question: "The largest desert in the world is the Sahara.", answer: false },
+                { question: "The Earth revolves around the Sun in 365 days.", answer: true },
+                { question: "Cows have four stomach compartments.", answer: true },
+                { question: "The moon produces its own light.", answer: false },
+                { question: "Birds are the only animals with feathers.", answer: true },
+                { question: "There are 50 states in the United States.", answer: true },
+                { question: "A kilometer is longer than a mile.", answer: false },
+                { question: "The human body has four lungs.", answer: false },
+                { question: "Venomous snakes inject venom through their fangs.", answer: true },
+                { question: "The longest bone in the human body is the femur.", answer: true },
+                { question: "Cheetahs are the fastest land animals.", answer: true },
+                { question: "The national animal of Canada is the beaver.", answer: true },
+                { question: "Chocolate comes from cacao beans.", answer: true },
+                { question: "Polar bears have white fur.", answer: false },
+                { question: "The largest organ in the human body is the skin.", answer: true },
+                { question: "The Nile River flows through Egypt.", answer: true },
+                { question: "The speed of sound is faster in vacuum.", answer: false },
+                { question: "Mars is known as the Red Planet.", answer: true },
+                { question: "The largest mammal on Earth is the African elephant.", answer: false },
+                { question: "The capital of Italy is Rome.", answer: true },
+                { question: "A prism separates white light into a spectrum of colors.", answer: true },
+                { question: "Humans have three kidneys.", answer: false },
+                { question: "The Amazon rainforest is known as the Earth's lungs.", answer: true },
+                { question: "Venus rotates in the same direction as most planets in our solar system.", answer: false },
+                { question: "The hummingbird is the only bird that can fly backward.", answer: true },
+                { question: "The capital of Brazil is Rio de Janeiro.", answer: false },
+                { question: "The freezing point of water is 0 degrees Celsius.", answer: true },
+                { question: "Shakespeare wrote 'Romeo and Juliet'.", answer: true },
+                { question: "A kilogram is a unit of time.", answer: false },
+                { question: "Octopuses have blue blood.", answer: true },
+                { question: "The capital of Germany is Berlin.", answer: true },
+                { question: "Lightning is hotter than the surface of the Sun.", answer: true },
+                { question: "The human eye can distinguish over 10 million colors.", answer: true },
+                { question: "Polar bears are native to Antarctica.", answer: false },
+                { question: "The chemical symbol for silver is Ag.", answer: true },
+                { question: "Mount Kilimanjaro is located in Kenya.", answer: false },
+                { question: "A triangle has four sides.", answer: false },
+                { question: "Jupiter has the most moons in the solar system.", answer: true },
+                { question: "Rainbows are a full circle.", answer: true },
+                { question: "The capital of Russia is Moscow.", answer: true },
+                { question: "Oxygen is the most abundant gas in Earth's atmosphere.", answer: false }
+                ];
+
+        let qst = 0;
+        var ans = true;
+        let qno = 1;
+        let score = 0;
+       
+      
+       
+
+        
+        function nextQuestion()
+        {
+            if(qno > 25)
+            {
+                if(confirm("Game over! The final score is: " + score))
+                {
+                    window.location.href = "index.html";
+                    return;
+                }
+                else
+                {
+                    window.location.href = "index.html";
+                    return;
+                }
+
+            }
+            let index = Math.floor(Math.random() * questions.length);
+            qst = questions[index].question;
+            ans = questions[index].answer;
+            document.getElementById("question").innerHTML = "Q." + qno + " " + qst;
+            qno += 1;
+            questions.splice(index,1);
+        }
+        nextQuestion();
+            
+          
+            
+           
+        
+        
+        function clickTrue() 
+        {
+            if(ans == true)
+                {
+                    score += 1;
+                    document.getElementById("score").innerHTML = "Score: " + score;
+                    nextQuestion();
+
+                }
+            else
+                {
+                    nextQuestion();
+                }
+        }
+        function clickFalse()
+        {
+            if(ans == false)
+                {
+                    score += 1;
+                    document.getElementById("score").innerHTML = "Score: " + score;
+                    nextQuestion();
+                }
+            else{
+                nextQuestion();
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

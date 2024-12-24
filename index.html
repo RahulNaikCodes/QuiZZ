@@ -1,0 +1,197 @@
+<!-- Background color : #4C0A87-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coustard:wght@400;900&family=Just+Another+Hand&family=Lacquer&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Coustard:wght@400;900&family=Just+Another+Hand&family=Lacquer&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuiZZ</title>
+    <style>
+        .bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+            .coustard-regular {
+    font-family: "Coustard", serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    .coustard-black {
+    font-family: "Coustard", serif;
+    font-weight: 900;
+    font-style: normal;
+    }
+
+        body{
+            background-color: #4C0A87;
+        }
+        #home
+        {
+            height:150px;
+            width:300px;
+            position:relative;
+            right:40px;
+            bottom:12px;
+        }
+        #main
+        {
+            display:flex;
+           justify-content: space-between;
+            margin-right:250px;
+            margin-top:5px;
+            padding-left:10px;
+           align-items: center;
+        }
+        
+        #logo
+        {
+            height: 230px;
+            width:500px;
+        }
+        p
+        {
+                font-family: "Coustard";
+                color:rgb(255, 255, 255);
+                font-size: 18px;
+        
+               text-shadow: black 2px;
+
+        }
+        #subtitle
+        {
+            font-size:25px;
+            letter-spacing: 4px;
+            position:relative;
+            left:500px;
+            bottom:55px;
+            color:yellow;
+           text-shadow: black 2px 2px;
+        }
+        #about
+        {
+            height:40px;
+            width:130px;
+            font-family: "Bungee Inline";
+            background-color: white;
+            font-size: 15px;
+            color:#4C0A87;
+            border-bottom: #8800ff solid 5px;
+            border-right: #8800ff solid 5px;
+           position: relative;
+           left: 170px;
+           bottom:20px;
+        }
+        #play
+        {
+                height:60px;
+                width:150px;
+                font-family: "Bungee Inline";
+                font-size: 20px;
+                background-color: rgb(255, 0, 0);
+                color:#ffffff;
+                border-radius: 10px;
+                margin-left: 30px;
+                
+        }
+        #bdy
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-right:120px;
+        }
+        #imp
+        {
+            color:rgb(239, 239, 28);
+           
+        }
+        #about_popup
+        {
+            margin:auto;
+            background-color: #3b006f;
+            border: white dotted 2px;
+            z-index: 3;
+            font-family: 'Bungee Inline';
+            color:white;
+            height:100%;
+            width:50%;
+            justify-content: center;
+            align-items:center;
+            display:none;
+            padding:10px;
+
+        }
+        #close
+        {
+            background-color: rgb(220, 16, 16);
+            width:30px;
+            display: block;
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom:auto;
+            margin-top:0;
+
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <header id="main">
+       
+        <a href="index.html" target="_self"><img src="home icon.png" id="home"></a>
+        <img src="LOGO.png" id = "logo">
+    
+        <button id="about" onclick="showAboutUs()"> About Us </button>
+ 
+    </header>
+    <p id="subtitle"> Find fun with knowledge </p>
+<div id="bdy">
+    <p> Welcome to QuiZZ! <br>
+        You will be given 25 True/False questions <br>
+        about various interesting topics. <br>
+    <span id="imp"> Flex your knowledge, learn something new <br>
+        and compete with your friends! </span> <br></p>
+    <button id="play" onclick="startGame()"> Play! </button>
+</div>
+
+<div id="about_popup">
+        <p> Rahul Naik - ENG23CS0154 <br>
+            Rakshit Panwar - ENG23CS0159<br>
+            Roshan Shetty -     <br>
+            Sangamesh -         <br>
+        </p>
+        <br>
+        <button id="close" onclick="closeAboutUs()"> X </button>
+    </div>
+    
+<script>
+    function showAboutUs()
+    {
+        document.getElementById("about_popup").style.display = "flex";
+    }
+    function closeAboutUs()
+    {
+        document.getElementById("about_popup").style.display = "none";
+    }
+    function startGame()
+    {
+        window.location.href = "game.html";
+    }
+
+
+
+    </script>
+
+</body>
+</html>
+
